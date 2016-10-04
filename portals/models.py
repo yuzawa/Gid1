@@ -9,13 +9,14 @@ class Report(models.Model):
     damaged_type = models.CharField(max_length=16)
     attacker = models.CharField(max_length=64)
     attacked_portal = models.CharField(max_length=128)
-    linked_portal = models.CharField(max_length=128)
-    portal_owner = models.CharField(max_length=64)
+    linked_portal = models.CharField(max_length=128, blank=True, default="")
+    portal_owner = models.CharField(max_length=64, blank=True, default="")
     portal_address = models.CharField(max_length=256)
     portal_latitude = models.DecimalField(max_digits=9, decimal_places=6)
     portal_longtitude = models.DecimalField(max_digits=9, decimal_places=6)
-
+    pub_date = models.DateTimeField()
+    
 class Portal(models.Model):
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     longtitude = models.DecimalField(max_digits=9, decimal_places=6)
-    name = models.CharField(max_length=128)
+    portal_name = models.CharField(max_length=128)
